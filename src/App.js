@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+// CONTEXT
+import { AppContextProvider } from "./context/app.context";
+
+// COMPONENTS
+import Layout from "./components/layout/layout.component";
+// import MoviesList from "./views/movies-list/movies-list.component";
+// import FavoritesList from "./views/favorites-list/favorites-list.component";
+// import WatchLaterList from "./views/watchLater-list/watchLater-list.component";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <AppContextProvider>
+        <Layout>
+          {/* <Routes>
+            <Route path="/" element={<MoviesList />} />
+            <Route path="/favorites" element={<FavoritesList />} />
+            <Route path="/watchlater" element={<WatchLaterList />} />
+          </Routes> */}
+        </Layout>
+      </AppContextProvider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
