@@ -15,6 +15,10 @@ export const ImageContainer = styled.div`
     width: 100%;
     height: 100%;
   }
+
+  @media (max-width: 600px) {
+    width: unset;
+  }
 `;
 export const InfoContainer = styled.div`
   display: flex;
@@ -29,7 +33,7 @@ export const InfoContainer = styled.div`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 125px;
+    max-width: 118px;
     text-transform: uppercase;
   }
 
@@ -53,31 +57,4 @@ export const CardInfo = styled.div`
     font-size: 1.25rem;
     font-weight: 700;
   }
-`;
-
-export const Vote = styled.span`
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: yellow;
-  padding: 3px 7px;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  font-weight: 700;
-`;
-
-export const Star = styled.img`
-  position: absolute;
-  bottom: 10px;
-  left: 5px;
-  padding: 3px 7px;
-  height: 25px;
-`;
-
-export const Watch = styled.img`
-  position: absolute;
-  bottom: 10px;
-  right: 5px;
-  padding: 3px 7px;
-  height: 25px;
 `;

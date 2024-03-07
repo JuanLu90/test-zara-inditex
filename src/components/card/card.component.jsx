@@ -1,3 +1,6 @@
+// DEPENDENCIES
+import { useNavigate } from "react-router-dom";
+
 // STYLED-COMPONENTS
 import { CardWrapper, ImageContainer, InfoContainer } from "./card.styled";
 
@@ -10,6 +13,8 @@ import HearUIcon from "../../assets/heart.png";
 
 // FUNCTION
 const Card = (props) => {
+  const navigate = useNavigate();
+
   const { character } = props;
 
   const {
@@ -39,7 +44,7 @@ const Card = (props) => {
 
   return (
     <CardWrapper>
-      <ImageContainer>
+      <ImageContainer onClick={() => navigate(`/details/${character.id}`)}>
         <img
           src={`${character.path}.${character.extension}`}
           alt={character.title}

@@ -9,5 +9,11 @@ export const CharactersListWrapper = styled.div.attrs({
 export const CharactersResultWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
+
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
   margin-top: 20px;
 `;
