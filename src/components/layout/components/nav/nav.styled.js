@@ -7,7 +7,7 @@ export const NavWrapper = styled.div.attrs({
   justify-content: space-between;
   align-items: center;
   height: 45px;
-  padding: 10px 20px;
+  padding: 10px 40px;
   background-color: #000000;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 `;
@@ -33,5 +33,6 @@ export const SpanHeart = styled.div`
   img {
     height: 25px;
     margin-right: 7px;
+    cursor: pointer;
   }
 `;

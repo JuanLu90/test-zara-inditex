@@ -5,7 +5,7 @@ import Filter from "../../components/filter/filter.component";
 // import NoResults from "../../components/no-results/no-results.component";
 
 // HOOKS
-import useCharactersListHook from "./hooks/characters-list.hook";
+import useCharactersListHook from "../../hooks/characters-list.hook";
 
 // STYLED-COMPONENTS
 import {

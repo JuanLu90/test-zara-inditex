@@ -7,7 +7,7 @@ import { AppContextProvider } from "./context/app.context";
 import Layout from "./components/layout/layout.component";
 import CharactersList from "./views/characters-list/characters-list.component";
 import FavoritesList from "./views/favorites-list/favorites-list.component";
-import CharacterDetailsList from "./views/character-details-list/character-details-list";
+import CharacterDetails from "./views/character-details/character-details";
 
 const App = () => {
   return (
@@ -17,7 +17,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<CharactersList />} />
             <Route path="/favorites" element={<FavoritesList />} />
-            <Route path="/details/:id" element={<CharacterDetailsList />} />
+            <Route path="/details/:id" element={<CharacterDetails />} />
           </Routes>
         </Layout>
       </AppContextProvider>
