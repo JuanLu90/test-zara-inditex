@@ -5,26 +5,19 @@ import { createContext, useContext } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 
 export const AppContext = createContext({
-  favouriteMoviesListStoraged: [],
-  setFavouriteMoviesListStoraged: () => {},
-  watchLaterMoviesListStoraged: [],
-  setWatchLaterMoviesListStoraged: () => {},
+  favouriteCharactersListStoraged: [],
+  setFavouriteCharactersListStoraged: () => {},
 });
 
 export const AppContextProvider = ({ children }) => {
-  const [favouriteMoviesListStoraged, setFavouriteMoviesListStoraged] =
-    useLocalStorage("favouriteMoviesList", []);
-
-  const [watchLaterMoviesListStoraged, setWatchLaterMoviesListStoraged] =
-    useLocalStorage("watchMoviesList", []);
+  const [favouriteCharactersListStoraged, setFavouriteCharactersListStoraged] =
+    useLocalStorage("favouriteCharactersList", []);
 
   return (
     <AppContext.Provider
       value={{
-        setFavouriteMoviesListStoraged,
-        favouriteMoviesListStoraged,
-        watchLaterMoviesListStoraged,
-        setWatchLaterMoviesListStoraged,
+        setFavouriteCharactersListStoraged,
+        favouriteCharactersListStoraged,
       }}
     >
       {children}

@@ -26,11 +26,12 @@ export const LogoWrapper = styled.div`
 `;
 
 export const SpanHeart = styled.div`
-  font-size: 1.4em;
-  font-weight: 700;
-  color: #5d1d1b;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
 
   img {
     height: 25px;
+    margin-right: 7px;
   }
 `;

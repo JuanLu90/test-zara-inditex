@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 
 export const useLocalStorage = (key, initialValue) => {
-  const [arrMovies, setArrMovies] = useState(() => {
+  const [arrCharacters, setArrCharacters] = useState(() => {
     const item = window.localStorage.getItem(key);
     if (item) {
       return JSON.parse(item);
@@ -12,8 +12,8 @@ export const useLocalStorage = (key, initialValue) => {
   });
 
   useEffect(() => {
-    window.localStorage.setItem(key, JSON.stringify(arrMovies));
-  }, [key, arrMovies]);
+    window.localStorage.setItem(key, JSON.stringify(arrCharacters));
+  }, [key, arrCharacters]);
 
-  return [arrMovies, (newValue) => setArrMovies(newValue)];
+  return [arrCharacters, (newValue) => setArrCharacters(newValue)];
 };
