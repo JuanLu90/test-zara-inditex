@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { render, screen } from '../../../utils/test-utils';
+import { render, screen } from '../../../utils/test';
 
 // COMPONENTS
 import Loader from '../loader.component';

@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { renderHook } from "../../utils/test-utils";
+import { renderHook } from "../../utils/test";
 
 // HOOK
 import useCharactersListHook from "../characters-list.hook";

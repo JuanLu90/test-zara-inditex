@@ -9,8 +9,7 @@ jest.mock("../../../../utils/apiUtils");
 
 describe("Characters List Services", () => {
   it("should get characters list", async () => {
-    const page = 1;
-    await getCharactersListService(page);
+    await getCharactersListService();
 
     expect(apiUtils.get).toHaveBeenCalled();
     expect(apiUtils.get).toHaveBeenCalledWith({

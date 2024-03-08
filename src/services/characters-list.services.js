@@ -1,22 +1,23 @@
 // UTILS
-import apiUtils from "../utils/apiUtils";
+import apiUtils from "../utils/api";
 
 // CONSTANTS
 import {
   urlCharactersList,
   urlCharactersListFilter,
-} from "./characters-list.constants";
+  urlApiKey,
+} from "../utils/constants";
 
 const getCharactersListService = () =>
   apiUtils.get({
-    url: `${urlCharactersList}&apikey=${process.env.REACT_APP_API_KEY_PUBLIC}&hash=${process.env.REACT_APP_API_KEY_HASH}&ts=1`,
+    url: `${urlCharactersList}&${urlApiKey}`,
   });
 
 export { getCharactersListService };
 
 const getCharactersListFilterService = (value) =>
   apiUtils.get({
-    url: `${urlCharactersListFilter}${value}&apikey=${process.env.REACT_APP_API_KEY_PUBLIC}&hash=${process.env.REACT_APP_API_KEY_HASH}&ts=1`,
+    url: `${urlCharactersListFilter}${value}${urlApiKey}`,
   });
 
 export { getCharactersListFilterService };

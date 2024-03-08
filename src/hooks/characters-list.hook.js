@@ -6,7 +6,6 @@ import CharactersListHandlers from "../handlers/characters-list.handlers";
 
 const useCharactersListHook = () => {
   const initialStateFilterInfo = {
-    page: 1,
     search: "",
   };
 
@@ -15,9 +14,9 @@ const useCharactersListHook = () => {
   const [isFetching, setIsFetching] = useState(false);
 
   useEffect(() => {
-    if (!filterInfo.search) handleGetCharactersList(filterInfo.page);
-    else handleFilterCharacterstList(filterInfo.search, filterInfo.page);
-  }, [filterInfo.search, filterInfo.page]);
+    if (!filterInfo.search) handleGetCharactersList();
+    else handleFilterCharacterstList(filterInfo.search);
+  }, [filterInfo.search]);
 
   const { handleGetCharactersList, handleFilterCharacterstList } =
     CharactersListHandlers({

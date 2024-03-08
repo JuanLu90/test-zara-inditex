@@ -1,22 +1,22 @@
 // DEPENDENCIES
-import { render, screen } from '../../../utils/test-utils';
+import { render, screen } from "../../../utils/test";
 
 // COMPONENTS
-import Layout from '../layout.component';
+import Layout from "../layout.component";
 
 // MOCKS
-jest.mock('react-router-dom');
+jest.mock("react-router-dom");
 
-describe('Layout component', () => {
-  it('should render', () => {
+describe("Layout component", () => {
+  it("should render", () => {
     render(
       <Layout>
         <div>Mock text</div>
-      </Layout>,
+      </Layout>
     );
 
-    expect(screen.getByTestId('layout-component')).toBeTruthy();
-    expect(screen.getByTestId('nav-component')).toBeTruthy();
-    expect(screen.getByText('TV')).toBeTruthy();
+    expect(screen.getByTestId("layout-component")).toBeTruthy();
+    expect(screen.getByTestId("nav-component")).toBeTruthy();
+    expect(screen.getByText("TV")).toBeTruthy();
   });
 });

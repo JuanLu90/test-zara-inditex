@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { render, screen } from "../../../utils/test-utils";
+import { render, screen } from "../../../utils/test";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // HOOKS

@@ -26,10 +26,9 @@ const CharactersList = () => {
     if (value)
       setFilterInfo((prevState) => ({
         ...prevState,
-        page: 1,
         search: value,
       }));
-    else handleGetCharactersList(filterInfo.page);
+    else handleGetCharactersList();
   };
 
   const getCharactersList = () => {

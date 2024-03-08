@@ -8,12 +8,11 @@ const getCharactersListHandler = async ({
   setCharactersList,
   setIsFetching,
   setFilterInfo,
-  page,
 }) => {
   setIsFetching(true);
 
   try {
-    const response = await getCharactersListService(page);
+    const response = await getCharactersListService();
 
     if (response) {
       const {
@@ -29,7 +28,7 @@ const getCharactersListHandler = async ({
         return { id, name, path, extension };
       });
 
-      setFilterInfo({ page, total, search: "" });
+      setFilterInfo({ total, search: "" });
       setCharactersList(charactersInfoFiltered);
     } else {
       console.error("Error on getCharactersListHandler()");
@@ -88,12 +87,11 @@ const CharactersListHandlers = ({
   setIsFetching,
   setFilterInfo,
 }) => ({
-  handleGetCharactersList: (page) =>
+  handleGetCharactersList: () =>
     getCharactersListHandler({
       setCharactersList,
       setIsFetching,
       setFilterInfo,
-      page,
     }),
   handleFilterCharacterstList: (value) =>
     getCharactersListFilterHandler({

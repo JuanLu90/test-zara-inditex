@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { render, screen } from "../../../utils/test-utils";
+import { render, screen } from "../../../utils/test";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // COMPONENTS
@@ -10,7 +10,6 @@ describe("Filter component", () => {
     const props = {
       handleChange: jest.fn(),
       filterInfo: {
-        page: 1,
         search: "",
       },
     };

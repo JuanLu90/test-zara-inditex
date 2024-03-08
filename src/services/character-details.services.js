@@ -1,19 +1,19 @@
 // UTILS
-import apiUtils from "../utils/apiUtils";
+import apiUtils from "../utils/api";
 
 // CONSTANTS
-import { urlCharacterDetails } from "./characters-list.constants";
+import { urlCharacterDetails, urlApiKey } from "../utils/constants";
 
 const getCharacterDetailsService = (id) =>
   apiUtils.get({
-    url: `${urlCharacterDetails}/${id}?apikey=${process.env.REACT_APP_API_KEY_PUBLIC}&hash=${process.env.REACT_APP_API_KEY_HASH}&ts=1`,
+    url: `${urlCharacterDetails}/${id}?${urlApiKey}`,
   });
 
 export { getCharacterDetailsService };
 
 const getCharacterDetailsServiceComics = (id) =>
   apiUtils.get({
-    url: `${urlCharacterDetails}/${id}/comics?apikey=${process.env.REACT_APP_API_KEY_PUBLIC}&hash=${process.env.REACT_APP_API_KEY_HASH}&ts=1`,
+    url: `${urlCharacterDetails}/${id}/comics?${urlApiKey}`,
   });
 
 export { getCharacterDetailsServiceComics };
