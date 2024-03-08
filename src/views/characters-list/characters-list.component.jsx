@@ -14,21 +14,14 @@ import {
 } from "./characters-list.styled";
 
 const CharactersList = () => {
-  const {
-    charactersList,
-    isFetching,
-    handleGetCharactersList,
-    filterInfo,
-    setFilterInfo,
-  } = useCharactersListHook();
+  const { charactersList, isFetching, filterInfo, setFilterInfo } =
+    useCharactersListHook();
 
   const handleChange = (value) => {
-    if (value)
-      setFilterInfo((prevState) => ({
-        ...prevState,
-        search: value,
-      }));
-    else handleGetCharactersList();
+    setFilterInfo((prevState) => ({
+      ...prevState,
+      search: value,
+    }));
   };
 
   const getCharactersList = () => {

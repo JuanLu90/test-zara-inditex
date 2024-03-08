@@ -8,18 +8,16 @@ import {
 } from "../../services/characters-list.services";
 
 const useCharactersListHook = () => {
-  const initialState = {
-    filterInfo: {
-      search: "",
-    },
-    charactersList: [],
-    isFetching: false,
+  const initialStateFilterInfo = {
+    search: "",
   };
 
-  const [state, setState] = useState(initialState);
+  const [charactersList, setCharactersList] = useState([]);
+  const [filterInfo, setFilterInfo] = useState(initialStateFilterInfo);
+  const [isFetching, setIsFetching] = useState(false);
 
   const handleGetCharactersList = async () => {
-    setState((prevState) => ({ ...prevState, isFetching: true }));
+    setIsFetching(true);
 
     try {
       const response = await getCharactersListService();
@@ -38,22 +36,20 @@ const useCharactersListHook = () => {
           return { id, name, path, extension };
         });
 
-        setState({
-          filterInfo: { total, search: "" },
-          charactersList: charactersInfoFiltered,
-          isFetching: false,
-        });
+        setFilterInfo({ total, search: "" });
+        setCharactersList(charactersInfoFiltered);
       } else {
         console.error("Error on getCharactersListHandler()");
       }
     } catch (e) {
       console.error(e);
-      setState((prevState) => ({ ...prevState, isFetching: false }));
     }
+
+    setIsFetching(false);
   };
 
   const handleFilterCharacterstList = async (value) => {
-    setState((prevState) => ({ ...prevState, isFetching: true }));
+    setIsFetching(true);
 
     try {
       const response = await getCharactersListFilterService(value);
@@ -73,29 +69,36 @@ const useCharactersListHook = () => {
           return { id, name, path, extension };
         });
 
-        setState({
-          filterInfo: { total, search: value },
-          charactersList: charactersInfoFiltered,
-          isFetching: false,
-        });
+        setFilterInfo((prevState) => ({
+          ...prevState,
+          total,
+          results,
+        }));
+
+        setCharactersList(charactersInfoFiltered);
       } else {
         console.error("Error on getCharactersListFilterHandler()");
       }
     } catch (e) {
       console.error(e);
-      setState((prevState) => ({ ...prevState, isFetching: false }));
     }
+
+    setIsFetching(false);
   };
 
   useEffect(() => {
-    if (!state.filterInfo.search) handleGetCharactersList();
-    else handleFilterCharacterstList(state.filterInfo.search);
-  }, [state.filterInfo.search]);
+    if (filterInfo.search) {
+      handleFilterCharacterstList(filterInfo.search);
+    } else {
+      handleGetCharactersList();
+    }
+  }, [filterInfo.search]);
 
   return {
-    ...state,
-    setFilterInfo: (filterInfo) =>
-      setState((prevState) => ({ ...prevState, filterInfo })),
+    charactersList,
+    isFetching,
+    setFilterInfo,
+    filterInfo,
     handleGetCharactersList,
   };
 };
