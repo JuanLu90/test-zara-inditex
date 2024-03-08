@@ -20,13 +20,11 @@ import { useAppContext } from "../../context/app.context";
 // IMAGES
 import HeartUnfillIcon from "../../assets/heart-unfill.png";
 import HeartUIcon from "../../assets/heart.png";
+import Loader from "../../components/loader/loader.component";
 
 const CharacterDetailsList = () => {
-  const {
-    characterDetails,
-    // isFetching,
-    handleGetCharacterDetails,
-  } = useCharacterDetailstHook();
+  const { characterDetails, isFetching, handleGetCharacterDetails } =
+    useCharacterDetailstHook();
 
   const {
     favouriteCharactersListStoraged,
@@ -58,54 +56,62 @@ const CharacterDetailsList = () => {
       ]);
   };
 
+  console.log(isFetching);
+
   return (
     <CharacterDetailsWrapper>
-      <CharacterDetailsInfoWrapper>
-        <div>
-          <CharacterDetailsImage>
-            <img
-              src={`${characterDetails.path}.${characterDetails.extension}`}
-              alt={characterDetails.name}
-              title={characterDetails.name}
-            />
-          </CharacterDetailsImage>
-          <CharacterDetailsInfo>
+      {isFetching ? (
+        <Loader />
+      ) : (
+        <>
+          <CharacterDetailsInfoWrapper>
             <div>
-              <h1>{characterDetails.name}</h1>
-              <button onClick={() => handleOnClickFav(characterDetails.id)}>
+              <CharacterDetailsImage>
                 <img
-                  src={findFavoriteFn() ? HeartUIcon : HeartUnfillIcon}
-                  alt="Zara Logo"
-                  title="Zara Logo"
+                  src={`${characterDetails.path}.${characterDetails.extension}`}
+                  alt={characterDetails.name}
+                  title={characterDetails.name}
                 />
-              </button>
-            </div>
-            <p>{characterDetails.description}</p>
-          </CharacterDetailsInfo>
-        </div>
-      </CharacterDetailsInfoWrapper>
-      <CharacterDetailsComicsWrapper>
-        <div>
-          <h1>COMICS</h1>
-          <CharacterDetailsComicsList>
-            {characterDetails?.comics?.map((comic) => {
-              return (
-                <ComicWrapper key={comic.id}>
-                  <ComicImageWrapper>
+              </CharacterDetailsImage>
+              <CharacterDetailsInfo>
+                <div>
+                  <h1>{characterDetails.name}</h1>
+                  <button onClick={() => handleOnClickFav(characterDetails.id)}>
                     <img
-                      src={`${comic.path}.${comic.extension}`}
-                      alt={comic.title}
-                      title={comic.title}
+                      src={findFavoriteFn() ? HeartUIcon : HeartUnfillIcon}
+                      alt="Zara Logo"
+                      title="Zara Logo"
                     />
-                  </ComicImageWrapper>
-                  <ComicTitle>{comic.title}</ComicTitle>
-                  <span>{comic.date}</span>
-                </ComicWrapper>
-              );
-            })}
-          </CharacterDetailsComicsList>
-        </div>
-      </CharacterDetailsComicsWrapper>
+                  </button>
+                </div>
+                <p>{characterDetails.description}</p>
+              </CharacterDetailsInfo>
+            </div>
+          </CharacterDetailsInfoWrapper>
+          <CharacterDetailsComicsWrapper>
+            <div>
+              <h1>COMICS</h1>
+              <CharacterDetailsComicsList>
+                {characterDetails?.comics?.map((comic) => {
+                  return (
+                    <ComicWrapper key={comic.id}>
+                      <ComicImageWrapper>
+                        <img
+                          src={`${comic.path}.${comic.extension}`}
+                          alt={comic.title}
+                          title={comic.title}
+                        />
+                      </ComicImageWrapper>
+                      <ComicTitle>{comic.title}</ComicTitle>
+                      <span>{comic.date}</span>
+                    </ComicWrapper>
+                  );
+                })}
+              </CharacterDetailsComicsList>
+            </div>
+          </CharacterDetailsComicsWrapper>
+        </>
+      )}
     </CharacterDetailsWrapper>
   );
 };

@@ -1,8 +1,8 @@
 // COMPONENTS
 import Card from "../../components/card/card.component";
-// import Loader from "../../components/loader/loader.component";
+import Loader from "../../components/loader/loader.component";
 import Filter from "../../components/filter/filter.component";
-// import NoResults from "../../components/no-results/no-results.component";
+import NoResults from "../../components/no-results/no-results.component";
 
 // HOOKS
 import useCharactersListHook from "../../hooks/characters-list.hook";
@@ -16,7 +16,7 @@ import {
 const CharactersList = () => {
   const {
     charactersList,
-    // isFetching,
+    isFetching,
     handleGetCharactersList,
     filterInfo,
     setFilterInfo,
@@ -32,6 +32,24 @@ const CharactersList = () => {
     else handleGetCharactersList(filterInfo.page);
   };
 
+  const getCharactersList = () => {
+    let result;
+    if (isFetching) {
+      result = <Loader />;
+    } else if (charactersList.length > 0) {
+      result = (
+        <CharactersResultWrapper>
+          {charactersList.map((character) => (
+            <Card key={character.id} character={character} />
+          ))}
+        </CharactersResultWrapper>
+      );
+    } else {
+      result = <NoResults />;
+    }
+    return result;
+  };
+
   return (
     <CharactersListWrapper>
       <Filter
@@ -40,23 +58,7 @@ const CharactersList = () => {
         setFilterInfo={setFilterInfo}
       />
 
-      {/* {isFetching ? (
-        <Loader />
-      ) : charactersList.length > 0 ? (
-        <CharactersResultWrapper>
-          {charactersList.map((character) => (
-            <Card key={character.id} character={character} />
-          ))}
-        </CharactersResultWrapper>
-      ) : (
-        <NoResults />
-      )} */}
-
-      <CharactersResultWrapper>
-        {charactersList.map((character) => (
-          <Card key={character.id} character={character} />
-        ))}
-      </CharactersResultWrapper>
+      {getCharactersList()}
     </CharactersListWrapper>
   );
 };
