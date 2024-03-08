@@ -18,8 +18,8 @@ import {
 import { useAppContext } from "../../context/app.context";
 
 // IMAGES
-import HearUnfillIcon from "../../assets/heart-unfill.png";
-import HearUIcon from "../../assets/heart.png";
+import HeartUnfillIcon from "../../assets/heart-unfill.png";
+import HeartUIcon from "../../assets/heart.png";
 
 const CharacterDetailsList = () => {
   const {
@@ -37,7 +37,6 @@ const CharacterDetailsList = () => {
   useEffect(() => {
     handleGetCharacterDetails(id);
   }, []);
-  console.log(characterDetails);
 
   const findFavoriteFn = () =>
     favouriteCharactersListStoraged.some((x) => x.id == characterDetails.id);
@@ -73,12 +72,13 @@ const CharacterDetailsList = () => {
           <CharacterDetailsInfo>
             <div>
               <h1>{characterDetails.name}</h1>
-              <img
-                src={findFavoriteFn() ? HearUIcon : HearUnfillIcon}
-                alt="Zara Logo"
-                title="Zara Logo"
-                onClick={() => handleOnClickFav(characterDetails.id)}
-              />
+              <button onClick={() => handleOnClickFav(characterDetails.id)}>
+                <img
+                  src={findFavoriteFn() ? HeartUIcon : HeartUnfillIcon}
+                  alt="Zara Logo"
+                  title="Zara Logo"
+                />
+              </button>
             </div>
             <p>{characterDetails.description}</p>
           </CharacterDetailsInfo>

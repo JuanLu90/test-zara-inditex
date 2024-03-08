@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // STYLED-COMPONENTS
 import { CardWrapper, ImageContainer, InfoContainer } from "./card.styled";
@@ -8,8 +8,8 @@ import { CardWrapper, ImageContainer, InfoContainer } from "./card.styled";
 import { useAppContext } from "../../context/app.context";
 
 // IMAGES
-import HearUnfillIcon from "../../assets/heart-unfill.png";
-import HearUIcon from "../../assets/heart.png";
+import HeartUnfillIcon from "../../assets/heart-unfill.png";
+import HeartUIcon from "../../assets/heart.png";
 
 // FUNCTION
 const Card = (props) => {
@@ -52,13 +52,14 @@ const Card = (props) => {
         />
       </ImageContainer>
       <InfoContainer>
-        <span>{character.name}</span>
-        <img
-          src={findFavoriteFn() ? HearUIcon : HearUnfillIcon}
-          alt="Zara Logo"
-          title="Zara Logo"
-          onClick={() => handleOnClickFav(character.id)}
-        />
+        <Link to={`/details/${character.id}`}>{character.name}</Link>
+        <button onClick={() => handleOnClickFav(character.id)}>
+          <img
+            src={findFavoriteFn() ? HeartUIcon : HeartUnfillIcon}
+            alt="Zara Logo"
+            title="Zara Logo"
+          />
+        </button>
       </InfoContainer>
     </CardWrapper>
   );

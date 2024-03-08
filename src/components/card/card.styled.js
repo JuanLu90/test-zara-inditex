@@ -3,13 +3,12 @@ import styled from "styled-components";
 
 export const CardWrapper = styled.div`
   margin: 7px;
-  cursor: pointer;
-  background: linear-gradient(30deg, #ffffff 90%, transparent 10%);
 `;
 
 export const ImageContainer = styled.div`
   width: 188px;
   height: 188px;
+  cursor: pointer;
 
   img {
     width: 100%;
@@ -24,21 +23,30 @@ export const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: ${(props) => props.theme.black};
+  color: ${(props) => props.theme.white};
   padding: 20px 15px;
-  border-top: 5px solid #ec1d24;
+  border-top: 5px solid ${(props) => props.theme.red};
 
-  span {
+  a {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 118px;
     text-transform: uppercase;
+    text-decoration: none;
+    color: ${(props) => props.theme.white};
+  }
+
+  > button {
+    background: none;
+    border: none;
+    padding: 0;
   }
 
   img {
     height: 15px;
+    cursor: pointer;
   }
 `;
 

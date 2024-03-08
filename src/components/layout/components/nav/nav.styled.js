@@ -8,12 +8,16 @@ export const NavWrapper = styled.div.attrs({
   align-items: center;
   height: 45px;
   padding: 10px 40px;
-  background-color: #000000;
+  background-color: ${(props) => props.theme.black};
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 600px) {
+    padding: 10px 15px;
+  }
 `;
 
 export const LogoWrapper = styled.div`
-  background-color: #ec1d24;
+  background-color: ${(props) => props.theme.red};
   padding: 7px;
 
   a {
@@ -28,7 +32,13 @@ export const LogoWrapper = styled.div`
 export const SpanHeart = styled.div`
   display: flex;
   align-items: center;
-  color: #ffffff;
+  color: ${(props) => props.theme.white};
+
+  > button {
+    background: none;
+    border: none;
+    padding: 0;
+  }
 
   img {
     height: 25px;

@@ -22,12 +22,9 @@ const Nav = () => {
         </Link>
       </LogoWrapper>
       <SpanHeart>
-        <img
-          src={Heart}
-          alt="Heart Logo"
-          title="Heart Logo"
-          onClick={() => navigate("/favorites")}
-        />
+        <button onClick={() => navigate("/favorites")}>
+          <img src={Heart} alt="Heart Logo" title="Heart Logo" />
+        </button>
         {favouriteCharactersListStoraged?.length}
       </SpanHeart>
     </NavWrapper>

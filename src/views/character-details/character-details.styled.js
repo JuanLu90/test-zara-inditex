@@ -7,13 +7,13 @@ export const CharacterDetailsWrapper = styled.div.attrs({
 export const CharacterDetailsInfoWrapper = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #000000;
+  background-color: ${(props) => props.theme.black};
   border-top: 1px solid gray;
 
   > div {
     display: flex;
-    max-width: 1000px;
-    color: #ffffff;
+    width: 1000px;
+    color: ${(props) => props.theme.white};
 
     @media (max-width: 600px) {
       display: unset;
@@ -38,6 +38,11 @@ export const CharacterDetailsInfo = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 50px;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    width: unset;
+  }
 
   > div {
     display: flex;
@@ -46,11 +51,17 @@ export const CharacterDetailsInfo = styled.div`
     width: 100%;
     text-transform: uppercase;
 
+    > button {
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
     h1 {
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
-      max-width: 290px;
+      max-width: 500px;
       text-transform: uppercase;
     }
   }
@@ -67,6 +78,7 @@ export const CharacterDetailsInfo = styled.div`
 
 export const CharacterDetailsComicsWrapper = styled.div`
   > div {
+    padding: 20px;
     max-width: 1000px;
     margin: auto;
   }
