@@ -1,6 +1,6 @@
 // HOOKS
 import { useEffect } from "react";
-import useCharacterDetailstHook from "../../hooks/character-details.hook";
+import useCharacterDetailstHook from "./character-details.hook";
 import { useParams } from "react-router-dom";
 import {
   CharacterDetailsWrapper,
