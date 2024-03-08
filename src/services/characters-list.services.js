@@ -2,22 +2,10 @@
 import apiUtils from "../utils/api";
 
 // CONSTANTS
-import {
-  urlCharactersList,
-  urlCharactersListFilter,
-  urlApiKey,
-} from "../utils/constants";
+import { urls } from "../utils/constants";
 
-const getCharactersListService = () =>
-  apiUtils.get({
-    url: `${urlCharactersList}&${urlApiKey}`,
-  });
+export const getCharactersListService = () =>
+  apiUtils.get({ url: urls.charactersList });
 
-export { getCharactersListService };
-
-const getCharactersListFilterService = (value) =>
-  apiUtils.get({
-    url: `${urlCharactersListFilter}${value}${urlApiKey}`,
-  });
-
-export { getCharactersListFilterService };
+export const getCharactersListFilterService = (value) =>
+  apiUtils.get({ url: urls.charactersListFilter(value) });

@@ -75,6 +75,8 @@ const useCharactersListHook = () => {
       }
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsFetching(false);
     }
 
     setIsFetching(false);

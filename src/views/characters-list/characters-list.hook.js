@@ -1,5 +1,5 @@
 // DEPENDENCIES
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // SERVICES
 import {
@@ -11,6 +11,8 @@ const useCharactersListHook = () => {
   const initialStateFilterInfo = {
     search: "",
   };
+
+  const timerRef = useRef(null);
 
   const [charactersList, setCharactersList] = useState([]);
   const [filterInfo, setFilterInfo] = useState(initialStateFilterInfo);
@@ -43,6 +45,8 @@ const useCharactersListHook = () => {
       }
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsFetching(false);
     }
 
     setIsFetching(false);
@@ -81,6 +85,8 @@ const useCharactersListHook = () => {
       }
     } catch (e) {
       console.error(e);
+    } finally {
+      setIsFetching(false);
     }
 
     setIsFetching(false);
@@ -88,7 +94,15 @@ const useCharactersListHook = () => {
 
   useEffect(() => {
     if (filterInfo.search) {
-      handleFilterCharacterstList(filterInfo.search);
+      // Limpiar el temporizador existente
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+
+      // Establecer un nuevo temporizador
+      timerRef.current = setTimeout(() => {
+        handleFilterCharacterstList(filterInfo.search);
+      }, 300); // 500ms de retraso
     } else {
       handleGetCharactersList();
     }
