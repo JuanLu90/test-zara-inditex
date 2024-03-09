@@ -2,10 +2,11 @@
 import { getCharactersListService } from "../characters-list.services";
 
 // UTILS
-import apiUtils from "../../../../utils/apiUtils";
+import apiUtils from "../../utils/api";
+import { urls } from "../../utils/constants";
 
 // MOCKS
-jest.mock("../../../../utils/apiUtils");
+jest.mock("../../utils/api");
 
 describe("Characters List Services", () => {
   it("should get characters list", async () => {
@@ -13,7 +14,7 @@ describe("Characters List Services", () => {
 
     expect(apiUtils.get).toHaveBeenCalled();
     expect(apiUtils.get).toHaveBeenCalledWith({
-      url: "https://gateway.marvel.com/v1/?apikey=f1eb0fddb91524fcb1e67860576e0d66&page=1",
+      url: urls.charactersList,
     });
   });
 });

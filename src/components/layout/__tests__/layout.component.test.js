@@ -17,6 +17,6 @@ describe("Layout component", () => {
 
     expect(screen.getByTestId("layout-component")).toBeTruthy();
     expect(screen.getByTestId("nav-component")).toBeTruthy();
-    expect(screen.getByText("TV")).toBeTruthy();
+    expect(screen.getByText("0")).toBeTruthy();
   });
 });

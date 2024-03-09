@@ -94,15 +94,13 @@ const useCharactersListHook = () => {
 
   useEffect(() => {
     if (filterInfo.search) {
-      // Limpiar el temporizador existente
       if (timerRef.current) {
         clearTimeout(timerRef.current);
       }
 
-      // Establecer un nuevo temporizador
       timerRef.current = setTimeout(() => {
         handleFilterCharacterstList(filterInfo.search);
-      }, 300); // 500ms de retraso
+      }, 300);
     } else {
       handleGetCharactersList();
     }

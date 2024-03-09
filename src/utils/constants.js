@@ -1,5 +1,5 @@
 const url = "http://gateway.marvel.com/v1/public/characters";
-const apiKey = `&apikey=${process.env.REACT_APP_API_KEY_PUBLIC}&hash=${process.env.REACT_APP_API_KEY_HASH}&ts=1`;
+const apiKey = `&apikey=${process.env.REACT_APP_API_KEY_PUBLIC}&hash=${process.env.REACT_APP_API_KEY_HASH}&ts=${process.env.REACT_APP_API_KEY_TS}`;
 
 export const urls = {
   charactersList: `${url}?limit=50${apiKey}`,

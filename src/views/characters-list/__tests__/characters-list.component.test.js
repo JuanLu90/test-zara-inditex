@@ -4,13 +4,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // HOOKS
 
-import useCharactersListHook from "../hooks/characters-list.hook";
+import useCharactersListHook from "../characters-list.hook";
 
 // COMPONENTS
 import CharactersList from "../characters-list.component";
 
 // MOCKS
-jest.mock("../hooks/characters-list.hook");
+jest.mock("../characters-list.hook");
 
 describe("CharactersList component", () => {
   beforeEach(() => {
