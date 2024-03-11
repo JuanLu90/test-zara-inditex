@@ -22,9 +22,9 @@ Go into Zara-inditex-test and:
 This app uses environment variables to make calls to the Marvel API, you will need to be registered and have your own public and private key.
 You must configure it in the following way:
 - File `.env` with three variables:
-    - REACT_APP_API_KEY_PUBLIC: your public key
-    - REACT_APP_API_KEY_HASH: a md5 digest of the ts parameter, your private key and your public key (e.g. md5(ts+privateKey+publicKey)
-    - REACT_APP_API_KEY_TS: ts parameter (can be 1 for example and works fine)
+    - `REACT_APP_API_KEY_PUBLIC`: your public key
+    - `REACT_APP_API_KEY_HASH`: a md5 digest of the ts parameter, your private key and your public key (e.g. md5(ts+privateKey+publicKey)
+    - `REACT_APP_API_KEY_TS`: ts parameter (can be 1 for example and works fine)
 
 Info from api documentation :
 Authentication for Server-Side Applications
