@@ -52,12 +52,18 @@ const Card = (props) => {
         />
       </ImageContainer>
       <InfoContainer>
-        <Link to={`/details/${character.id}`}>{character.name}</Link>
+        <h2>
+          <Link to={`/details/${character.id}`}>{character.name}</Link>
+        </h2>
         <button onClick={() => handleOnClickFav(character.id)}>
           <img
             src={findFavoriteFn() ? HeartUIcon : HeartUnfillIcon}
-            alt="Zara Logo"
-            title="Zara Logo"
+            alt={
+              findFavoriteFn() ? "Delete from favorites" : "Add to favorites"
+            }
+            title={
+              findFavoriteFn() ? "Delete from favorites" : "Add to favorites"
+            }
           />
         </button>
       </InfoContainer>

@@ -79,8 +79,16 @@ const CharacterDetailsList = () => {
                   <button onClick={() => handleOnClickFav(characterDetails.id)}>
                     <img
                       src={findFavoriteFn() ? HeartUIcon : HeartUnfillIcon}
-                      alt="Zara Logo"
-                      title="Zara Logo"
+                      alt={
+                        findFavoriteFn()
+                          ? "Delete from favorites"
+                          : "Add to favorites"
+                      }
+                      title={
+                        findFavoriteFn()
+                          ? "Delete from favorites"
+                          : "Add to favorites"
+                      }
                     />
                   </button>
                 </div>
