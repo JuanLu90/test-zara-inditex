@@ -16,6 +16,28 @@ Go into Zara-inditex-test and:
 - Jest y RTL (Testing)
 - Eslint (Linter) and Prettier (Code formatter)
 
+------------------------------
+
+####  :exclamation::exclamation::exclamation: IMPORTANT :exclamation::exclamation::exclamation:
+This app uses environment variables to make calls to the Marvel API, you will need to be registered and have your own public and private key.
+You must configure it in the following way:
+- File `.env` with three variables:
+    - REACT_APP_API_KEY_PUBLIC: your public key
+    - REACT_APP_API_KEY_HASH: a md5 digest of the ts parameter, your private key and your public key (e.g. md5(ts+privateKey+publicKey)
+    - REACT_APP_API_KEY_TS: ts parameter (can be 1 for example and works fine)
+
+Info from api documentation :
+Authentication for Server-Side Applications
+Server-side applications must pass two parameters in addition to the apikey parameter:
+
+ts - a timestamp (or other long string which can change on a request-by-request basis)
+hash - a md5 digest of the ts parameter, your private key and your public key (e.g. md5(ts+privateKey+publicKey)
+For example, a user with a public key of "1234" and a private key of "abcd" could construct a valid call as follows: http://gateway.marvel.com/v1/public/comics?ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150 (the hash value is the md5 digest of 1abcd1234)
+
+More info in: https://developer.marvel.com/documentation/authorization
+
+------------------------------
+
 I have use a 'Mobile first' approach, under a structural and creational design, trying to encapsulate the code with a defined purpose.
 
 ***services-resolver-hook-component***
