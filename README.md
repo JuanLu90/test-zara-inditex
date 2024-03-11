@@ -41,7 +41,17 @@ More info in: https://developer.marvel.com/documentation/authorization
 I have use a 'Mobile first' approach, under a structural and creational design, trying to encapsulate the code with a defined purpose.
 
 ***services-resolver-hook-component***
-First I decided to work with another layer. But once I had the app up and running, I realized that it was too complex for this type of application, and I decided to delete it.
+First I decided to work with another layer, handle. But once I had the app up and running, I realized that it was too complex for this type of application, and I decided to delete it.
+
+### Structure:
+- src: Root folder.
+- assets: Static files such as images and icons are stored here.
+- components: Contains all the components
+- context: React Contexts are defined here to use context API.
+- hooks: Custom React Hooks are stored here. Only one was needed to manage the information in the localstorage.
+- services: Api calls to get informayion about characters.
+- utils: Few utilities to be used throughout the application.
+- views: Contains the different and separates views of the app.
 
 
 ### How works:
