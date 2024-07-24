@@ -11,6 +11,7 @@ Go into Zara-inditex-test and:
 ### Technologies:
 
 - React - create-react-app
+- Typescript
 - Context-API
 - Styled-Components
 - Jest y RTL (Testing)
