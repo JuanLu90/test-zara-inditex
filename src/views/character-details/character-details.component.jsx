@@ -56,8 +56,6 @@ const CharacterDetailsList = () => {
       ]);
   };
 
-  console.log(isFetching);
-
   return (
     <CharacterDetailsWrapper>
       {isFetching ? (
