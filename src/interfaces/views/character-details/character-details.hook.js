@@ -5,7 +5,7 @@ import { useState } from "react";
 import {
   getCharacterDetailsService,
   getCharacterDetailsServiceComics,
-} from "../../services/character-details.services";
+} from "../../../core/services/character-details.services";
 
 const useCharactersListHook = () => {
   const [characterDetails, setCharacterDetails] = useState([]);

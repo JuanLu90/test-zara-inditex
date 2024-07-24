@@ -6,10 +6,10 @@ import { ThemeProvider } from "styled-components";
 import { AppContextProvider } from "./context/app.context";
 
 // COMPONENTS
-import Layout from "./components/layout/layout.component";
-import CharactersList from "./views/characters-list/characters-list.component";
-import FavoritesList from "./views/favorites-list/favorites-list.component";
-import CharacterDetails from "./views/character-details/character-details.component";
+import Layout from "./interfaces/components/layout/layout.component";
+import CharactersList from "./interfaces/views/characters-list/characters-list.component";
+import FavoritesList from "./interfaces/views/favorites-list/favorites-list.component";
+import CharacterDetails from "./interfaces/views/character-details/character-details.component";
 
 import { theme } from "./utils/styled";
 

@@ -1,8 +1,8 @@
 // components/filter/filter.component.tsx
 import React from "react";
 import { FilterSearch, ItemsWrapper } from "./filter.styled";
-import Glass from "../../assets/glass.png";
-import { FilterProps } from "../../types";
+import Glass from "../../../assets/glass.png";
+import { FilterProps } from "../../../types/types";
 
 const Filter: React.FC<FilterProps> = ({ handleChange, filterInfo }) => {
   return (

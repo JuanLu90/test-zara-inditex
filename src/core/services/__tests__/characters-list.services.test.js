@@ -2,8 +2,8 @@
 import { getCharactersListService } from "../characters-list.services";
 
 // UTILS
-import apiUtils from "../../utils/api";
-import { urls } from "../../utils/constants";
+import apiUtils from "../../../utils/api";
+import { urls } from "../../../utils/constants";
 
 // MOCKS
 jest.mock("../../utils/api");

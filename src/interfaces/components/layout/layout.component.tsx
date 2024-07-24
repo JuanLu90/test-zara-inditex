@@ -2,7 +2,7 @@
 import React from "react";
 import Nav from "./components/nav/nav.component";
 import * as Std from "./layout.styled";
-import { LayoutProps } from "../../types";
+import { LayoutProps } from "../../../types/types";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (

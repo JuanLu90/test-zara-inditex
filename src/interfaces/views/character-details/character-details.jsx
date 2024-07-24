@@ -15,11 +15,11 @@ import {
 } from "./character-details.styled";
 
 // CONTEXT
-import { useAppContext } from "../../context/app.context";
+import { useAppContext } from "../../../context/app.context";
 
 // IMAGES
-import HeartUnfillIcon from "../../assets/heart-unfill.png";
-import HeartUIcon from "../../assets/heart.png";
+import HeartUnfillIcon from "../../../assets/heart-unfill.png";
+import HeartUIcon from "../../../assets/heart.png";
 import Loader from "../../components/loader/loader.component";
 
 const CharacterDetailsList = () => {

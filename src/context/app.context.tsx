@@ -1,7 +1,11 @@
 // context/app.context.tsx
 import React, { createContext, useContext, useMemo } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
-import { AppContextProps, AppContextProviderProps, Character } from "../types";
+import { useLocalStorage } from "../adapters/external-services/storage/useLocalStorage";
+import {
+  AppContextProps,
+  AppContextProviderProps,
+  Character,
+} from "../types/types";
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
 

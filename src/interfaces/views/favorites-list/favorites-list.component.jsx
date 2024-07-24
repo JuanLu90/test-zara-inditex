@@ -2,7 +2,7 @@
 import Card from "../../components/card/card.component";
 
 // CONTEXT
-import { useAppContext } from "../../context/app.context";
+import { useAppContext } from "../../../context/app.context";
 
 // STYLED-COMPONENTS
 import {

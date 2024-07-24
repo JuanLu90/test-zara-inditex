@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   getCharactersListService,
   getCharactersListFilterService,
-} from "../../services/characters-list.services";
+} from "../../../core/services/characters-list.services";
 
 const useCharactersListHook = () => {
   const initialStateFilterInfo = {

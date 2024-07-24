@@ -2,10 +2,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CardWrapper, ImageContainer, InfoContainer } from "./card.styled";
-import { useAppContext } from "../../context/app.context";
-import HeartUnfillIcon from "../../assets/heart-unfill.png";
-import HeartUIcon from "../../assets/heart.png";
-import { CardProps } from "../../types"; // Asegúrate de que esto está siendo importado
+import { useAppContext } from "../../../context/app.context";
+import HeartUnfillIcon from "../../../assets/heart-unfill.png";
+import HeartUIcon from "../../../assets/heart.png";
+import { CardProps } from "../../../types/types"; // Asegúrate de que esto está siendo importado
 
 const Card: React.FC<CardProps> = ({ character }) => {
   const navigate = useNavigate();

@@ -2,9 +2,9 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { NavWrapper, LogoWrapper, SpanHeart } from "./nav.styled";
-import Logo from "../../../../assets/marvel-logo.png";
-import Heart from "../../../../assets/heart.png";
-import { useAppContext } from "../../../../context/app.context";
+import Logo from "../../../../../assets/marvel-logo.png";
+import Heart from "../../../../../assets/heart.png";
+import { useAppContext } from "../../../../../context/app.context";
 
 const Nav: React.FC = () => {
   const navigate = useNavigate();
