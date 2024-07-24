@@ -45,15 +45,19 @@ I have use a 'Mobile first' approach, under a structural and creational design, 
 First I decided to work with another layer, handle. But once I had the app up and running, I realized that it was too complex for this type of application, and I decided to delete it.
 
 ### Structure:
-- src: Root folder.
-- assets: Static files such as images and icons are stored here.
-- components: Contains all the components
-- context: React Contexts are defined here to use context API.
-- hooks: Custom React Hooks are stored here. Only one was needed to manage the information in the localstorage.
-- services: Api calls to get informayion about characters.
-- utils: Few utilities to be used throughout the application.
-- views: Contains the different and separates views of the app.
+Implementing a hexagonal architecture:
 
+- src: Root folder for the application source code:
+    - assets: Static files such as images, icons, and fonts.
+    - interfaces: Defines TypeScript interfaces and types used throughout the application.
+        - components: Contains reusable UI components.
+        - views: Contains the different views or pages of the application.
+    - adapters: Contains code for interacting with external systems and services, such as API calls or local storage.
+    - external-services: Manages interactions with external APIs and services.
+    - storage: Manages interactions with local storage or other forms of application storage.
+    - core: Contains the core business logic and services of the application.
+    - config: Contains configuration files, including environment variables and settings.
+    - utils: Contains utility functions and helper modules used across the application.
 
 ### How works:
 The app has been structured by a **Nav** and a **Body**.
