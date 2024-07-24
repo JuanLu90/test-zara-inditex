@@ -1,45 +1,34 @@
-// DEPENDENCIES
+// components/card/card.component.tsx
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-
-// STYLED-COMPONENTS
 import { CardWrapper, ImageContainer, InfoContainer } from "./card.styled";
-
-// CONTEXT
 import { useAppContext } from "../../context/app.context";
-
-// IMAGES
 import HeartUnfillIcon from "../../assets/heart-unfill.png";
 import HeartUIcon from "../../assets/heart.png";
+import { CardProps } from "../../types"; // Asegúrate de que esto está siendo importado
 
-// FUNCTION
-const Card = (props) => {
+const Card: React.FC<CardProps> = ({ character }) => {
   const navigate = useNavigate();
-
-  const { character } = props;
-
   const {
     favouriteCharactersListStoraged,
     setFavouriteCharactersListStoraged,
   } = useAppContext();
 
   const findFavoriteFn = () =>
-    favouriteCharactersListStoraged.some((x) => x.id == character.id);
+    favouriteCharactersListStoraged.some((x) => x.id === character.id);
 
-  const handleOnClickFav = (id) => {
+  const handleOnClickFav = (id: string) => {
     const matchCharacter = favouriteCharactersListStoraged.findIndex(
-      (z) => z.id == id
+      (z) => z.id === id
     );
 
     if (matchCharacter !== -1) {
-      favouriteCharactersListStoraged.splice(matchCharacter, 1);
-      return setFavouriteCharactersListStoraged([
-        ...favouriteCharactersListStoraged,
-      ]);
-    } else
-      return setFavouriteCharactersListStoraged((prevArr) => [
-        ...prevArr,
-        character,
-      ]);
+      const updatedList = [...favouriteCharactersListStoraged];
+      updatedList.splice(matchCharacter, 1);
+      setFavouriteCharactersListStoraged(updatedList);
+    } else {
+      setFavouriteCharactersListStoraged((prevArr) => [...prevArr, character]);
+    }
   };
 
   return (

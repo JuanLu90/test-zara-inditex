@@ -1,7 +1,8 @@
-// STYLED COMPONENTS
+// components/loader/loader.component.tsx
+import React from "react";
 import { StyledLoader } from "./loader.styled";
 
-const Loader = () => {
+const Loader: React.FC = () => {
   return <StyledLoader />;
 };
 

@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
@@ -12,7 +13,7 @@ import CharacterDetails from "./views/character-details/character-details.compon
 
 import { theme } from "./utils/styled";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <BrowserRouter>

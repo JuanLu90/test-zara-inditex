@@ -1,11 +1,10 @@
-// COMPONENTS
+// components/layout/layout.component.tsx
+import React from "react";
 import Nav from "./components/nav/nav.component";
-
-// STYLED-COMPONENTS
 import * as Std from "./layout.styled";
+import { LayoutProps } from "../../types";
 
-// FUNCTIONS
-const Layout = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Std.Wrapper>
       <div className="nav">
